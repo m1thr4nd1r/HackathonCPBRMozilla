@@ -83,6 +83,12 @@
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="4375343009831804" type="Car" />
+                <action id="0" name="Play" sid="1141623507229305" type="Audio">
+                    <param id="0" name="Audio file">Car Screech And Crash-SoundBible</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
                 <action id="-2" name="Go to layout" sid="4355871672341805" type="System">
                     <param id="0" name="Layout">Over</param>
                 </action>
@@ -127,12 +133,6 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Play" sid="1141623507229305" type="Audio">
-                    <param id="0" name="Audio file">Car Screech And Crash-SoundBible</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">0</param>
-                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                </action>
                 <action id="33" name="Stop all" sid="6508761546012097" type="Audio" />
                 <action id="11" name="Set collisions enabled" sid="5337396771951338" type="Car">
                     <param id="0" name="Collisions">0</param>
@@ -140,10 +140,10 @@
                 <action behavior="Flash" id="0" name="Flash" sid="649795602293312" type="Car">
                     <param id="0" name="&apos;On&apos; time">0.1</param>
                     <param id="1" name="&apos;Off&apos; time">0.1</param>
-                    <param id="2" name="Duration">2.5</param>
+                    <param id="2" name="Duration">1.0</param>
                 </action>
                 <action behavior="Timer" id="0" name="Start timer" sid="3743457028946501" type="Car">
-                    <param id="0" name="Duration">2.5</param>
+                    <param id="0" name="Duration">1.0</param>
                     <param id="1" name="Type">0</param>
                     <param id="2" name="Tag">&quot;Death&quot;</param>
                 </action>
