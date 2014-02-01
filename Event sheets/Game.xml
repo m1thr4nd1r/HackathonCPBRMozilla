@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
+        <variable constant="0" name="start" sid="2462812358981364" static="0" type="number">1</variable>
         <variable constant="0" name="LastY" sid="1196911513494452" static="0" type="number">0</variable>
         <variable constant="1" name="MAXGAPY" sid="3847172566479025" static="0" type="number">100</variable>
         <variable constant="1" name="MINGAPY" sid="5437159708509348" static="0" type="number">50</variable>
@@ -11,18 +12,18 @@
                 <condition id="-25" name="On loader layout complete" sid="3540980334551836" type="System" />
             </conditions>
             <actions>
-                <action behavior="Timer" id="0" name="Start timer" sid="3449944437465399" type="Car">
-                    <param id="0" name="Duration">1.0</param>
-                    <param id="1" name="Type">1</param>
-                    <param id="2" name="Tag">&quot;Score&quot;</param>
+                <action id="-8" name="Set angle" sid="4194810707446835" type="Blocks">
+                    <param id="0" name="Angle">90</param>
                 </action>
-                <action behavior="Timer" id="0" name="Start timer" sid="7082151872962121" type="Car">
-                    <param id="0" name="Duration">10.0</param>
+                <action behavior="Timer" id="0" name="Start timer" sid="166078817224034" type="Car">
+                    <param id="0" name="Duration">5.0</param>
                     <param id="1" name="Type">1</param>
                     <param id="2" name="Tag">&quot;Speed&quot;</param>
                 </action>
-                <action id="-8" name="Set angle" sid="4194810707446835" type="Blocks">
-                    <param id="0" name="Angle">90</param>
+                <action behavior="Timer" id="0" name="Start timer" sid="3185025900005198" type="Car">
+                    <param id="0" name="Duration">1.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Score&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -58,7 +59,7 @@
             </conditions>
             <actions>
                 <action id="-2" name="Set Y" sid="3107486450081952" type="Car">
-                    <param id="0" name="Y">Car.Y - 5</param>
+                    <param id="0" name="Y">Car.Y - 3</param>
                 </action>
             </actions>
         </event-block>
@@ -70,7 +71,7 @@
             </conditions>
             <actions>
                 <action id="-2" name="Set Y" sid="51598172803933" type="Car">
-                    <param id="0" name="Y">Car.Y + 5</param>
+                    <param id="0" name="Y">Car.Y + 3</param>
                 </action>
             </actions>
         </event-block>
@@ -96,7 +97,7 @@
             <actions>
                 <action id="-11" name="Add to" sid="9767906478341676" type="Car">
                     <param id="0" name="Instance variable">Score</param>
-                    <param id="1" name="Value">(Car.Score  + 1)* Car.Speed</param>
+                    <param id="1" name="Value">Car.Score  +  Car.Speed</param>
                 </action>
                 <action id="0" name="Set text" sid="7577553631637233" type="Score">
                     <param id="0" name="Text">&quot;Score: &quot; &amp; Car.Score</param>
@@ -119,20 +120,30 @@
                 </action>
             </actions>
         </event-block>
-        <event-block any="1" sid="3356496632695535">
+        <event-block sid="3356496632695535">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="2833217253728052" type="Car">
                     <param id="0" name="Object">Blocks</param>
                 </condition>
             </conditions>
             <actions>
+                <action id="0" name="Play" sid="1141623507229305" type="Audio">
+                    <param id="0" name="Audio file">Car Screech And Crash-SoundBible</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="33" name="Stop all" sid="6508761546012097" type="Audio" />
+                <action id="11" name="Set collisions enabled" sid="5337396771951338" type="Car">
+                    <param id="0" name="Collisions">0</param>
+                </action>
                 <action behavior="Flash" id="0" name="Flash" sid="649795602293312" type="Car">
                     <param id="0" name="&apos;On&apos; time">0.1</param>
                     <param id="1" name="&apos;Off&apos; time">0.1</param>
-                    <param id="2" name="Duration">1.0</param>
+                    <param id="2" name="Duration">2.5</param>
                 </action>
                 <action behavior="Timer" id="0" name="Start timer" sid="3743457028946501" type="Car">
-                    <param id="0" name="Duration">1.0</param>
+                    <param id="0" name="Duration">2.5</param>
                     <param id="1" name="Type">0</param>
                     <param id="2" name="Tag">&quot;Death&quot;</param>
                 </action>
@@ -170,6 +181,70 @@
                 <action id="-9" name="Set value" sid="3223251629915824" type="System">
                     <param id="0" name="Variable">LastY</param>
                     <param id="1" name="Value">Blocks.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8417624691941771">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="6988179589393653" type="Keyboard" />
+                <condition id="-14" name="Compare variable" sid="8239946006322142" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="7720543194133032" type="Car">
+                    <param id="0" name="Duration">5.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Speed&quot;</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="28575376045736" type="Car">
+                    <param id="0" name="Duration">1.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Score&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="1307088218705704" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Play" sid="1336551620855736" type="Audio">
+                    <param id="0" name="Audio file">AceTone_Sound_-_Race</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;bg&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1203158896768345">
+            <conditions>
+                <condition id="2" name="Is in touch" sid="8803161384224568" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="2367740142785916" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="3135141914644961" type="Car">
+                    <param id="0" name="Duration">5.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Speed&quot;</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="2993158514065989" type="Car">
+                    <param id="0" name="Duration">1.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Score&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="6874211532688383" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Play" sid="8972905111825312" type="Audio">
+                    <param id="0" name="Audio file">AceTone_Sound_-_Race</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;bg&quot;</param>
                 </action>
             </actions>
         </event-block>

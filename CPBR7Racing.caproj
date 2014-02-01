@@ -15,6 +15,7 @@
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
     </used-plugins>
     <used-behaviors>
@@ -146,6 +147,11 @@
         </object-type>
         <object-type name="Play" sid="1940931711975493">
             <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Timer" sid="9956194016973569">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
         </object-type>
         <object-type name="Title" sid="7271811749899156">
             <plugin id="Text" />
@@ -173,6 +179,9 @@
         <object-type name="FinalScore" sid="7407478217042293">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Audio" sid="4398825270469004">
+            <plugin id="Audio" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -193,9 +202,34 @@
             </properties>
         </global-instance>
         <global-instance type="Mouse" uid="13" />
+        <global-instance type="Audio" uid="19">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+                <speed-of-sound>5000</speed-of-sound>
+                <doppler-factor>1</doppler-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder expanded="1" />
-    <music-folder expanded="1" />
+    <sounds-folder expanded="1">
+        <file name="Car Screech And Crash-SoundBible.m4a" />
+        <file name="Car Screech And Crash-SoundBible.ogg" />
+        <file name="Car Screech And Crash-SoundBible.wav" />
+        <file name="Engine_start_01.m4a" />
+        <file name="Engine_start_01.ogg" />
+        <file name="Engine_start_01.wav" />
+    </sounds-folder>
+    <music-folder expanded="1">
+        <file name="183659__zagi2__rev-up-loop.ogg" />
+        <file name="AceTone_Sound_-_Race.ogg" />
+    </music-folder>
     <files-folder expanded="1">
         <file-folder expanded="0" name="Icons">
             <file name="icon-16.png" />

@@ -15,11 +15,31 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-2" name="Go to layout" sid="5155160051090892" type="System">
-                    <param id="0" name="Layout">Game</param>
-                </action>
                 <action id="-40" name="Set fullscreen scaling" sid="950888334360874" type="System">
                     <param id="0" name="Fullscreen scaling">1</param>
+                </action>
+                <action id="0" name="Play" sid="2580533507904237" type="Audio">
+                    <param id="0" name="Audio file">Engine_start_01</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="159372998176474" type="Play">
+                    <param id="0" name="Duration">1.8</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;Start&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5032516690423662">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="4482012844836511" type="Play">
+                    <param id="0" name="Tag">&quot;Start&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="5155160051090892" type="System">
+                    <param id="0" name="Layout">Game</param>
                 </action>
             </actions>
         </event-block>

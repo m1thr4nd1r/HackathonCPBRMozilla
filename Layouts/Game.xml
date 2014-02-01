@@ -97,7 +97,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Score>0</Score>
+                        <Score>1</Score>
                         <Speed>1</Speed>
                     </instance-variables>
                     <behavior-instances>
