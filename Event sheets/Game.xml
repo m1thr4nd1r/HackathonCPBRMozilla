@@ -3,31 +3,191 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
-        <event-block sid="4296080835427953">
+        <variable constant="0" name="LastY" sid="1196911513494452" static="0" type="number">0</variable>
+        <variable constant="1" name="MAXGAPY" sid="3847172566479025" static="0" type="number">100</variable>
+        <variable constant="1" name="MINGAPY" sid="5437159708509348" static="0" type="number">50</variable>
+        <variable comment="Number of the track the user is playing" constant="0" name="Track" sid="6375394115071344" static="0" type="number">0</variable>
+        <event-block sid="7744533616745747">
             <conditions>
-                <condition id="8" name="Compare orientation" sid="3219431058688983" type="Touch">
-                    <param id="0" name="Orientation">2</param>
-                    <param id="1" name="Comparison">4</param>
-                    <param id="2" name="Angle">180</param>
+                <condition id="2" name="Key is down" sid="7990736410202297" type="Keyboard">
+                    <param id="0" name="Key">39 (Right arrow)</param>
                 </condition>
             </conditions>
             <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="5964875930984739" type="Car">
-                    <param id="0" name="Control">0</param>
+                <action id="-1" name="Set X" sid="1597715843618804" type="Car">
+                    <param id="0" name="X">Car.X + 5</param>
                 </action>
             </actions>
         </event-block>
-        <event-block sid="5298715834272064">
+        <event-block sid="6347469625266089">
             <conditions>
-                <condition id="8" name="Compare orientation" sid="9322696440394247" type="Touch">
-                    <param id="0" name="Orientation">2</param>
-                    <param id="1" name="Comparison">2</param>
-                    <param id="2" name="Angle">180</param>
+                <condition id="2" name="Key is down" sid="6215803914151036" type="Keyboard">
+                    <param id="0" name="Key">37 (Left arrow)</param>
                 </condition>
             </conditions>
             <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="1794398744878518" type="Car">
-                    <param id="0" name="Control">1</param>
+                <action id="-1" name="Set X" sid="3708953356434751" type="Car">
+                    <param id="0" name="X">Car.X - 5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3880875738950141">
+            <conditions>
+                <condition id="2" name="Key is down" sid="2695530480536159" type="Keyboard">
+                    <param id="0" name="Key">38 (Up arrow)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="3107486450081952" type="Car">
+                    <param id="0" name="Y">Car.Y - 5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6895326866058839">
+            <conditions>
+                <condition id="2" name="Key is down" sid="8115912387368122" type="Keyboard">
+                    <param id="0" name="Key">40 (Down arrow)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="51598172803933" type="Car">
+                    <param id="0" name="Y">Car.Y + 5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="3356496632695535">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2833217253728052" type="Car">
+                    <param id="0" name="Object">Blocks</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Flash" id="0" name="Flash" sid="649795602293312" type="Car">
+                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">1.0</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="3743457028946501" type="Car">
+                    <param id="0" name="Duration">1.0</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;Death&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1378108245267445">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="83626720921647" type="Car">
+                    <param id="0" name="Tag">&quot;Death&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4375343009831804" type="Car" />
+            </actions>
+        </event-block>
+        <event-block sid="4202932756639618">
+            <conditions>
+                <condition id="-25" name="On loader layout complete" sid="3540980334551836" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="3449944437465399" type="Car">
+                    <param id="0" name="Duration">1.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Score&quot;</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="7082151872962121" type="Car">
+                    <param id="0" name="Duration">10.0</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;Speed&quot;</param>
+                </action>
+                <action id="-8" name="Set angle" sid="4194810707446835" type="Blocks">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7917914740240795">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="7360858135039231" type="Car">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">(Car.Height) / 2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3837148275236651" type="System">
+                    <param id="0" name="Variable">Track</param>
+                    <param id="1" name="Value">int(random(10))</param>
+                </action>
+                <action id="-2" name="Set Y" sid="1211060518402441" type="Car">
+                    <param id="0" name="Y">500 - Car.Height / 2</param>
+                </action>
+                <action id="-5" name="Scroll to X" sid="1331853000550706" type="System">
+                    <param id="0" name="X">((2 * Track) + 1) * 75</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2600236458834126">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="9698774489549407" type="Car">
+                    <param id="0" name="Tag">&quot;Score&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="9767906478341676" type="Car">
+                    <param id="0" name="Instance variable">Score</param>
+                    <param id="1" name="Value">Car.Score * Car.Speed</param>
+                </action>
+                <action id="0" name="Set text" sid="7577553631637233" type="Score">
+                    <param id="0" name="Text">&quot;Score: &quot; &amp; Car.Score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7835317180308043">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9925020380456355" type="Blocks">
+                    <param id="0" name="Object">Exterminator</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="9616859164566198" type="Blocks" />
+            </actions>
+        </event-block>
+        <event-block sid="4699157178616012">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="8420270630969429" type="Blocks">
+                    <param id="0" name="Object">Creator</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="5474174607633054" type="System">
+                    <param id="0" name="Object to create">Blocks</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">floor(random(33,117))</param>
+                    <param id="3" name="Y">-floor(Random(MINGAPY, MAXGAPY))</param>
+                </action>
+                <action id="5" name="Set frame" sid="3282583136657168" type="Blocks">
+                    <param id="0" name="Frame number">floor(random(Blocks.AnimationFrameCount ))</param>
+                </action>
+                <action id="-8" name="Set angle" sid="5745608352758665" type="Blocks">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action id="-9" name="Set value" sid="3223251629915824" type="System">
+                    <param id="0" name="Variable">LastY</param>
+                    <param id="1" name="Value">Blocks.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="981950439955716">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="6705505616911092" type="Car">
+                    <param id="0" name="Tag">&quot;Speed&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="764845566168721" type="Car">
+                    <param id="0" name="Instance variable">Speed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="5260788099167745" type="Blocks">
+                    <param id="0" name="Speed">100 * Car.Speed</param>
                 </action>
             </actions>
         </event-block>

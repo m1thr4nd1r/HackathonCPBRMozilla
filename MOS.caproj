@@ -3,28 +3,35 @@
     <name>MOS</name>
     <description>A retro endless runner</description>
     <version>1.0.0.0</version>
-    <author></author>
+    <author>Victor dos Santos</author>
     <author-email></author-email>
-    <author-website>http://</author-website>
-    <app-id>com.mycompany.myapp</app-id>
+    <author-website></author-website>
+    <app-id>cpbr7.mos</app-id>
     <unique-id>282m4lft5v8nn</unique-id>
     <saved-with-version>15900</saved-with-version>
     <used-plugins>
-        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior author="Scirra" id="Car" version="1">Car</behavior>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
+        <width>640</width>
         <height>480</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
+    <first-layout>Start</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -42,34 +49,105 @@
     <object-folder expanded="1">
         <object-type name="Car" sid="7371961801015721">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Player Score" name="Score" sid="2211156518751479" type="number" />
+                <instance-variable name="Speed" sid="6591508798946462" type="number" />
+            </instance-variables>
             <behaviors>
-                <behavior-type name="Car" sid="3521052751006906">
-                    <behavior id="Car" />
+                <behavior-type name="BoundToLayout" sid="5848435921963078">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Timer" sid="1475050055270408">
+                    <behavior id="Timer" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="5600385642397959">
+                    <behavior id="Flash" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="3949087984751458">
+                    <behavior id="scrollto" />
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7303585429539565" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503268">
+                        <collision-poly>
+                            <point x="0.134615" y="0.932039" />
+                            <point x="0.0961538" y="0.504854" />
+                            <point x="0.153846" y="0.0776699" />
+                            <point x="0.5" y="0.00970876" />
+                            <point x="0.846154" y="0.0776699" />
+                            <point x="0.903846" y="0.504854" />
+                            <point x="0.865385" y="0.932039" />
+                            <point x="0.5" y="0.990291" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="3298486634783657">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Blocks" sid="7384940614293993">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="6215496557449238">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6766353670993639" speed="5">
+                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Score" sid="5893412946248254">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Track" sid="8099223892307643">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Road" sid="6504373433497483">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3012602437963696" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Touch" sid="5039294446303142">
-            <plugin id="Touch" />
+        <object-type name="Creator" sid="6484307407858653">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9166585627883725" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Exterminator" sid="1826665679229049">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3270790398040758" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
+        <layout>Start.xml</layout>
         <layout>Game.xml</layout>
+        <layout>Over.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>Game.xml</event-sheet>
+        <event-sheet>Over.xml</event-sheet>
+        <event-sheet>Start.xml</event-sheet>
     </event-folder>
     <global-instances>
-        <global-instance type="Touch" uid="1">
-            <properties>
-                <use-mouse-input>Yes</use-mouse-input>
-            </properties>
-        </global-instance>
+        <global-instance type="Keyboard" uid="2" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />
