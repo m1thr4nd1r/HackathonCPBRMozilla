@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2project>
-    <name>MOS</name>
+    <name>CPBR7Racing</name>
     <description>A retro endless runner</description>
     <version>1.0.0.0</version>
     <author>Victor dos Santos</author>
     <author-email></author-email>
     <author-website></author-website>
-    <app-id>cpbr7.mos</app-id>
+    <app-id>cpbr7.racing</app-id>
     <unique-id>282m4lft5v8nn</unique-id>
     <saved-with-version>15900</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
     </used-plugins>
     <used-behaviors>
@@ -27,8 +29,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>640</width>
-        <height>480</height>
+        <width>960</width>
+        <height>540</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <first-layout>Start</first-layout>
@@ -40,7 +42,7 @@
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
         <prop name="Orientations">Any</prop>
-        <prop name="Pause on unfocus">No</prop>
+        <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D web</prop>
         <prop name="Preview browser">(default)</prop>
         <prop name="Sampling">Linear</prop>
@@ -69,16 +71,16 @@
             </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7303585429539565" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.503268">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.504951">
                         <collision-poly>
-                            <point x="0.134615" y="0.932039" />
-                            <point x="0.0961538" y="0.504854" />
-                            <point x="0.153846" y="0.0776699" />
-                            <point x="0.5" y="0.00970876" />
-                            <point x="0.846154" y="0.0776699" />
-                            <point x="0.903846" y="0.504854" />
-                            <point x="0.865385" y="0.932039" />
-                            <point x="0.5" y="0.990291" />
+                            <point x="0.12" y="0.940594" />
+                            <point x="0.08" y="0.504951" />
+                            <point x="0.14" y="0.0693069" />
+                            <point x="0.5" y="0" />
+                            <point x="0.86" y="0.0693069" />
+                            <point x="0.92" y="0.504951" />
+                            <point x="0.88" y="0.940594" />
+                            <point x="0.5" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -96,10 +98,10 @@
             </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6766353670993639" speed="5">
-                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
-                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
-                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
-                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                    <frame duration="1" hotspotX="0.515625" hotspotY="0.515625" />
+                    <frame duration="1" hotspotX="0.515625" hotspotY="0.515625" />
+                    <frame duration="1" hotspotX="0.515625" hotspotY="0.515625" />
+                    <frame duration="1" hotspotX="0.515625" hotspotY="0.515625" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -134,6 +136,43 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Background" sid="3526784417707823">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9064483191796647" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Play" sid="1940931711975493">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Title" sid="7271811749899156">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Touch" sid="108816517825485">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Mouse" sid="8256428253678082">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Crash" sid="5814726306377978">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7264499967879855" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Lost" sid="9853325332562455">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Restart" sid="4363205503600327">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="FinalScore" sid="7407478217042293">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
@@ -148,6 +187,12 @@
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="2" />
+        <global-instance type="Touch" uid="12">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Mouse" uid="13" />
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />

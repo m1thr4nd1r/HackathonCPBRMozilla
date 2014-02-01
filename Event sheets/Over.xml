@@ -2,5 +2,31 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Over</name>
-    <events />
+    <events>
+        <event-block sid="2734445922650467">
+            <conditions>
+                <condition id="-25" name="On loader layout complete" sid="7251655476936843" type="System" />
+            </conditions>
+            <actions>
+                <action id="1" name="Append text" sid="3541019471156748" type="FinalScore">
+                    <param id="0" name="Text">Car.Score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="3955173248040468">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="5864018928071091" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Restart</param>
+                </condition>
+                <condition id="2" name="Is in touch" sid="7415225196393555" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="3705095240156874" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
